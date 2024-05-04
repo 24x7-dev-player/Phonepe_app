@@ -1,0 +1,1 @@
+# pip install git+https://github.com/pdftables/python-pdftables-api.git
