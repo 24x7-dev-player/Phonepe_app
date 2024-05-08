@@ -10,14 +10,14 @@ def fetch_stats(selected_user,df):
         df = df[df['Name'] == selected_user]
     # fetch the number of messages
     num_trans = df.shape[0]
-    deb = df[df['Type'] == 'Debit']['Amount'].sum()
-    cre = df[df['Type'] == 'Credit']['Amount'].sum()
+    deb = df[df['Type'] == 'DEBIT']['Amount'].sum()
+    cre = df[df['Type'] == 'CREDIT']['Amount'].sum()
     
-    debit_data = df[df['Type'] == 'Debit']
+    debit_data = df[df['Type'] == 'DEBIT']
     top_debit_persons = debit_data.groupby('Name')['Amount'].sum().nlargest(5).reset_index()
     top_debit_persons.columns = ['Name', 'Debit Amount']
     
-    credit_data = df[df['Type'] == 'Credit']
+    credit_data = df[df['Type'] == 'CREDIT']
     top_credit_persons = credit_data.groupby('Name')['Amount'].sum().nlargest(5).reset_index()
     top_credit_persons.columns = ['Name', 'Credit Amount']
     

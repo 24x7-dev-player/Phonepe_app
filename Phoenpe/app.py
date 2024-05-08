@@ -15,7 +15,7 @@ file = st.sidebar.file_uploader('Upload CSV', type=['csv'])
 if file is not None:
     # Read the uploaded file
     data = pd.read_csv(file)
-    data.drop(columns=["Unnamed: 2"], inplace=True, errors='ignore')
+    # data.drop(columns=["Unnamed: 2"], inplace=True, errors='ignore')
     df = preprocessor.preprocess(data)
     st.dataframe(df)
     
